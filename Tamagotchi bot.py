@@ -1,3 +1,13 @@
+import datetime
+import time
+
+def normalize(i):
+    if i > 100:
+        return 100
+    if i < 0:
+        return 0
+    return i
+
 class Event:
 
     def __init__(self, event_type, name, happiness, health, satiety, energy):
@@ -38,3 +48,15 @@ class Telagochi:
         u"🏃": Event("Play", "Running", None, 20, -20, -20),
         u"\U0001F3AE": Event("Play", "Video-Games", None, 20, -20, -20),
     }
+
+    def __init__(self, user_id):
+        self.user_id = user_id
+        self.name = None
+        self.birth_time = datetime.datetime.now()
+        self.last_command = "born"
+        self.happiness = 50
+        self.health = 50
+        self.satiety = 50
+        self.energy = 50
+        self.happiness_event = {}
+        self.time_event = Event("time", "time", -5, -5, -5, -5)
